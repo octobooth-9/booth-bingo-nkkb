@@ -11,6 +11,14 @@
     <h1>Booth Bingo</h1>
     <p class="tagline">Tap a square when you've done it. Get three in a row!</p>
     <div id="board" class="board" aria-label="Booth Bingo card"></div>
+    <button id="reset" type="button" class="reset">New card</button>
+    <div id="banner" class="banner" role="status" hidden>
+      <span class="banner-text">BINGO!</span>
+      <div class="confetti" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+    </div>
   </main>
   <script type="module" src="app.js"></script>
 </body>

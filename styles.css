@@ -68,3 +68,76 @@ h1 { margin-bottom: 0.25rem; font-size: 2.5rem; }
   from { transform: scale(1); }
   to { transform: scale(1.06); }
 }
+
+.reset {
+  margin-top: 1.25rem;
+  padding: 0.6rem 1.4rem;
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+  cursor: pointer;
+}
+
+.reset:hover { border-color: var(--fg); }
+
+.banner {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.banner[hidden] { display: none; }
+
+.banner-text {
+  padding: 0.5rem 1.5rem;
+  border-radius: 16px;
+  background: #f2cc60;
+  color: #0d1117;
+  font-size: clamp(3rem, 14vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  animation: pop 500ms cubic-bezier(0.2, 1.6, 0.4, 1) both;
+}
+
+.confetti i {
+  position: absolute;
+  top: -10%;
+  width: 10px;
+  height: 16px;
+  border-radius: 2px;
+  background: var(--c, #f2cc60);
+  left: var(--x, 50%);
+  animation: fall 2.4s linear var(--d, 0s) infinite;
+}
+
+.confetti i:nth-child(1)  { --x: 5%;  --d: 0s;    --c: #8957e5; }
+.confetti i:nth-child(2)  { --x: 14%; --d: 0.6s;  --c: #3fb950; }
+.confetti i:nth-child(3)  { --x: 23%; --d: 1.2s;  --c: #f2cc60; }
+.confetti i:nth-child(4)  { --x: 32%; --d: 0.3s;  --c: #58a6ff; }
+.confetti i:nth-child(5)  { --x: 41%; --d: 0.9s;  --c: #f778ba; }
+.confetti i:nth-child(6)  { --x: 50%; --d: 1.5s;  --c: #8957e5; }
+.confetti i:nth-child(7)  { --x: 59%; --d: 0.15s; --c: #3fb950; }
+.confetti i:nth-child(8)  { --x: 68%; --d: 0.75s; --c: #f2cc60; }
+.confetti i:nth-child(9)  { --x: 77%; --d: 1.35s; --c: #58a6ff; }
+.confetti i:nth-child(10) { --x: 86%; --d: 0.45s; --c: #f778ba; }
+.confetti i:nth-child(11) { --x: 93%; --d: 1.05s; --c: #8957e5; }
+.confetti i:nth-child(12) { --x: 97%; --d: 1.8s;  --c: #3fb950; }
+
+@keyframes pop {
+  from { transform: scale(0.2) rotate(-8deg); opacity: 0; }
+  to { transform: scale(1) rotate(-3deg); opacity: 1; }
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(720deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cell.win, .banner-text, .confetti i { animation: none; }
+  .confetti { display: none; }
+}
